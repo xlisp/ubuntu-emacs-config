@@ -129,5 +129,8 @@
   (interactive)
   (insert " (cljs.pprint/pprint (js->clj js/obj :keywordize-keys true))"))
 
+(defun cljc ()
+  (interactive)
+  (insert "#?(:clj Exception :cljs js/Object)"))
 
 (provide 'jim-clj-alias)
