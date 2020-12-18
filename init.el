@@ -403,3 +403,4 @@
 
 ;; muti cursor来头部选一列,然后删除: 就能代替replace-string 替换掉空行问题
 ;; C-q C-j 加空行
+(put 'downcase-region 'disabled nil)
