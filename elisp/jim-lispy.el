@@ -27,6 +27,21 @@
    ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
    (t (self-insert-command (or arg 1)))))
 
+(defun reverse-forward-dot ()
+  (interactive "P")
+  (re-search-backward "\\." nil t))
+
 (global-set-key "%" 'match-paren)
+(global-set-key (kbd "C-c C-g")
+                (lambda ()
+                  (interactive)
+                  (re-search-backward "\\." nil t)
+                  ;; (interactive)
+                  ;; (call-interactively #'reverse-forward-dot)
+                  ))
+;; 测试多选也能后退一个点.
+;; dasdas.dsadsad
+;; 321dasdas.dsadsad
+;; das321321das.dsadsad
 
 (provide 'jim-lispy)
