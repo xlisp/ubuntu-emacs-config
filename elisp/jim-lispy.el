@@ -44,4 +44,17 @@
 ;; 321dasdas.dsadsad
 ;; das321321das.dsadsad
 
+;; 批量操作时跳转到左右括号
+(global-set-key
+ (kbd "C-c C-9")
+ (lambda ()
+   (interactive)
+   (re-search-backward "(" nil t)))
+
+(global-set-key
+ (kbd "C-c C-0")
+ (lambda ()
+   (interactive)
+   (re-search-backward ")" nil t)))
+
 (provide 'jim-lispy)
