@@ -29,6 +29,9 @@
   (interactive)
   (cider-pprint-eval-last-sexp-to-comment))
 
+(defun get-project-name ()
+  (nth 1 (reverse (split-string (projectile-project-root) "/"))))
+
 ;; 在Emacs启动的mutil-term是zsh # 在外面终端启动的是closh
 (defun zsh ()
   "TODO: 直接输入命令作为zsh tab名字,否则就输入ls"
@@ -39,11 +42,11 @@
                    (format "zsh name %d:"
                            (random 10))))))
     (if (y-or-n-p "在当前打开目录?")
-        (vterm (format "zsh-%s" buffer-name))
+        (vterm (format "zsh<%s>%s" (get-project-name) buffer-name))
       (switch-to-git-projects
        (lambda (project)
          (setq default-directory project)
-         (vterm (format "zsh-%s" buffer-name)))))))
+         (vterm (format "zsh<%s>%s" (get-project-name) buffer-name)))))))
 
 ;; 定时做减法是整理的艺术
 (defun vv ()
