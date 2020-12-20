@@ -30,7 +30,9 @@
   (cider-pprint-eval-last-sexp-to-comment))
 
 (defun get-project-name ()
-  (nth 1 (reverse (split-string (projectile-project-root) "/"))))
+  (condition-case nil
+      (nth 1 (reverse (split-string (projectile-project-root) "/")))
+    (error "~")))
 
 ;; 在Emacs启动的mutil-term是zsh # 在外面终端启动的是closh
 (defun zsh ()
