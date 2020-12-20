@@ -158,7 +158,9 @@
 
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-; (scroll-bar-mode -1)
+(condition-case nil
+    (scroll-bar-mode -1) 
+  (error nil))
 
 (projectile-global-mode 1)
 
