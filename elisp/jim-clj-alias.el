@@ -64,7 +64,8 @@
 (defun recur ()
   "递归脚手架: 开始输入值,递归死循环,递归停止条件,从高阶函数的重复特征(用Postwalk函数来快速找数据特征值cond,然后改写成尾递归的方式)到递归"
   (interactive)
-  "
+  (insert
+   "
 (def factorial
   (fn [n]
     (loop [cnt n
@@ -72,7 +73,7 @@
       (if (zero? cnt)
         acc
         (recur (dec cnt) (* acc cnt))))))
-")
+"))
 
 (defun recur1 ()
   (interactive)
@@ -93,6 +94,28 @@
       (println i)
       (recur (inc i))))
 "))
+
+(defun recur-pair ()
+  "互相递归的一对"
+  (interactive)
+  (insert
+   "
+(defn get-span-1
+  [vect]
+  (if (= (count (last vect)) 1)
+    (last (last vect))
+    (map-list (rest vect))))
+
+(defn map-list
+  [lis]
+  (map
+    (fn [item]
+      (if (string? item)
+        item
+        (get-span-1 item)))
+    lis))
+"))
+
 
 (defun for-key ()
   (interactive)
