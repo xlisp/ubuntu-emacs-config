@@ -159,7 +159,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (condition-case nil
-    (scroll-bar-mode -1) 
+    (scroll-bar-mode -1)
   (error nil))
 
 (projectile-global-mode 1)
@@ -185,7 +185,17 @@
    (interactive)
    (call-interactively #'counsel-projectile-ag)))
 
-(define-key global-map (kbd "C-p") 'counsel-projectile-find-file)
+;; (define-key global-map (kbd "C-p") 'counsel-projectile-find-file) ;; 新版本的Emacs28会导致卡死
+(global-set-key
+ (kbd "C-p")
+ (lambda ()
+   (interactive)
+   (if (string= "~/" default-directory)
+       (progn
+         (setq default-directory "/")
+         (counsel-projectile-find-file))
+     (counsel-projectile-find-file))))
+
 ;; 关闭所有buffer: 针对project来的 # 需要在vterm的buffer下面执行才有效=>会问你要不要关掉repl,你选择no,其他文件都会被关掉,关于这个项目的
 (define-key global-map (kbd "C-c C-q") 'projectile-kill-buffers)
 
