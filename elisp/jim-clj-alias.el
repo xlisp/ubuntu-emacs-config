@@ -190,8 +190,25 @@
   (interactive)
   (insert " (cljs.pprint/pprint (js->clj js/obj :keywordize-keys true))"))
 
-(defun cljc ()
+(defun cljc-fn ()
   (interactive)
-  (insert "#?(:clj Exception :cljs js/Object)"))
+  (insert "(defn read-stri [s]
+  #?(:clj (clojure.core/read-string s)
+     :cljs (cljs.reader/read-string s)))"))
+
+(defun cljc-ns ()
+  (interactive)
+  (insert "
+(ns test.ns
+  (:require
+   #?@(:clj
+       [[clojure.string :as str]
+        [clojure.core.async :as async]]
+       :cljs
+       [[clojure.string :as str]
+        [cljs.core.async :as async]]))
+  #?(:cljs
+     (:require-macros
+      [cljs.core.async.macros :as asyncm :refer (go go-loop)])))"))
 
 (provide 'jim-clj-alias)
