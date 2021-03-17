@@ -123,6 +123,15 @@
 ;;(clojure.walk/macroexpand-all '(and false nil 8888))
 ;;(let* [and__5514__auto__ false] (if and__5514__auto__ (let* [and__5514__auto__ nil] (if and__5514__auto__ 8888 and__5514__auto__)) and__5514__auto__))
 
+(defun clj-doc ()
+  (interactive)
+  (insert
+   "(clojure.repl/source and)"))
+
+(defun macro-exp ()
+  (interactive)
+  (insert
+   "(clojure.pprint/pprint (clojure.walk/macroexpand-all '(and 1 2)))"))
 
 (defun recur-pair ()
   "互相递归的一对"
