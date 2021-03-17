@@ -95,6 +95,30 @@
       (recur (inc i))))
 "))
 
+(defun recur-macro ()
+  "递归宏是展开成一段代码列表: 如计算器宏 # 和and宏类似 ## 切成一小部分一小部分求值解释器解释，就行and宏一样，## 而eval本身也是这样的批量实现方式"
+  (interactive)
+  (insert
+   "
+(defmacro macr [n]
+  (if (zero? n)
+    1
+    `(* ~n (macr ~(dec n)))))
+(clojure.walk/macroexpand-all '(macr 5))
+"))
+
+(defun recur-macro2 ()
+  (interactive)
+  (insert
+   "
+(defmacro and
+  ([] true)
+  ([x] x)
+  ([x & next]
+   `(let [and# ~x]
+      (if and# (and ~@next) and#))))
+"))
+
 (defun recur-pair ()
   "互相递归的一对"
   (interactive)
