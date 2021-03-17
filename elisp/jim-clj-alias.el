@@ -106,6 +106,8 @@
     `(* ~n (macr ~(dec n)))))
 (clojure.walk/macroexpand-all '(macr 5))
 "))
+;; (clojure.walk/macroexpand-all '(macr 5))
+;; (clojure.core/* 5 (clojure.core/* 4 (clojure.core/* 3 (clojure.core/* 2 (clojure.core/* 1 1)))))
 
 (defun recur-macro2 ()
   (interactive)
@@ -118,6 +120,9 @@
    `(let [and# ~x]
       (if and# (and ~@next) and#))))
 "))
+;;(clojure.walk/macroexpand-all '(and false nil 8888))
+;;(let* [and__5514__auto__ false] (if and__5514__auto__ (let* [and__5514__auto__ nil] (if and__5514__auto__ 8888 and__5514__auto__)) and__5514__auto__))
+
 
 (defun recur-pair ()
   "互相递归的一对"
