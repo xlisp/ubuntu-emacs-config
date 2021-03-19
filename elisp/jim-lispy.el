@@ -57,4 +57,11 @@
    (interactive)
    (re-search-backward ")" nil t)))
 
+;; 跳转到"后面
+(global-set-key
+ (kbd "C-c C-1")
+ (lambda ()
+   (interactive)
+   (re-search-forward "\"" nil t)))
+
 (provide 'jim-lispy)
