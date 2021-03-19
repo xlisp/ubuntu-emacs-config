@@ -57,7 +57,7 @@
    (interactive)
    (re-search-backward ")" nil t)))
 
-;; 跳转到"后面
+;; 跳转到"后面: 用于多行编辑的时候,同时跳转
 (global-set-key
  (kbd "C-c C-1")
  (lambda ()
