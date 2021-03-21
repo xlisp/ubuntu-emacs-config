@@ -211,4 +211,13 @@
      (:require-macros
       [cljs.core.async.macros :as asyncm :refer (go go-loop)])))"))
 
+;; M-x cider-connect `Figwheel: Starting nREPL server on port: 5088` =>
+(defun figwheel-cljs-client-start ()
+  (interactive)
+  (progn
+    (insert "(use 'figwheel-sidecar.repl-api)\n")
+    (insert "(cljs-repl)\n")
+    (sleep-for 2)
+    (rename-buffer (replace-regexp-in-string " " " CLJS " (buffer-name)))))
+
 (provide 'jim-clj-alias)
