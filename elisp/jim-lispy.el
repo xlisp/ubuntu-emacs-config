@@ -64,4 +64,21 @@
    (interactive)
    (re-search-forward "\"" nil t)))
 
+;; CSS样式格式转换的时候,宏编辑器批量修改`:`和`;`和` `
+(global-set-key
+ (kbd "C-c C-2")
+ (lambda ()
+   (interactive)
+   (re-search-forward ";" nil t)))
+(global-set-key
+ (kbd "C-c C-3")
+ (lambda ()
+   (interactive)
+   (re-search-forward ":" nil t)))
+(global-set-key
+ (kbd "C-c C-4")
+ (lambda ()
+   (interactive)
+   (re-search-forward " " nil t)))
+
 (provide 'jim-lispy)

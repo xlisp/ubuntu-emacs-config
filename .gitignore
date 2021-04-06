@@ -24,3 +24,5 @@ projectile.cache
 *.text8
 postwalk-editer/target
 semanticdb/
+projects
+
