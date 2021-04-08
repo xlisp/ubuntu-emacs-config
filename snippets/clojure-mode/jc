@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: jc
+# key: jc
+# --
+[:div.flex.justify-center.w-100$2 [:div$1]]

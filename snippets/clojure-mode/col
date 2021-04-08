@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: col
+# key: col
+# --
+[:div.flex.flex-column
+ [:div$1]
+ [:div$2]]

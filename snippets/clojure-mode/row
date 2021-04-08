@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: row
+# key: row
+# --
+[:div.flex.flex-row
+ [:div$1]
+ [:div$2]]

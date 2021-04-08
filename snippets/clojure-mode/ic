@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ic
+# key: ic
+# --
+[:div.flex.items-center.h-50$2 [:div$1]]
