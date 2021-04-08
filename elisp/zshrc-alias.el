@@ -67,9 +67,12 @@
 (defun v-old ()
   (interactive)
   (find-file "~/old_emacs_spark/init.el"))
+
+;; `M-x describe-function`
 (defun v-clj ()
   (interactive)
-  (find-file "~/old_emacs_spark/_closhrc"))
+  (find-file "~/.closhrc"))
+
 (defun v-py ()
   (interactive)
   (find-file "~/.xonshrc"))
