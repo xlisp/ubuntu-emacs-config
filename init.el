@@ -420,3 +420,4 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 ;;
+(put 'upcase-region 'disabled nil)

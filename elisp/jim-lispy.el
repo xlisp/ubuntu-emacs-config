@@ -81,4 +81,24 @@
    (interactive)
    (re-search-forward " " nil t)))
 
+(global-set-key
+ (kbd "C-c C-5")
+ (lambda ()
+   (interactive)
+   (re-search-backward "]" nil t)))
+
+(global-set-key
+ (kbd "C-c C-6")
+ (lambda ()
+   (interactive)
+   (re-search-forward "\\[" nil t)))
+
+(global-set-key
+ (kbd "C-c C-7")
+ (lambda ()
+   (interactive)
+   (re-search-forward "tip2" nil t)))
+
+;; (re-search-forward "tip2" nil t)
+
 (provide 'jim-lispy)
