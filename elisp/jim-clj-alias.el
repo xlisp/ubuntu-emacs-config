@@ -95,6 +95,19 @@
       (recur (inc i))))
 "))
 
+(defun recur-cond ()
+  "多分支递归脚手架"
+  (interactive)
+  (insert
+   "
+(loop [x 1]
+  (println \"x= \" x)
+  (cond
+    (> x 20) (println \"ending at \" x )
+    (even? x) (recur (* 2 x))
+    :else (recur (+ x 1))))
+"))
+
 (defun recur-macro ()
   "递归宏是展开成一段代码列表: 如计算器宏 # 和and宏类似 ## 切成一小部分一小部分求值解释器解释，就行and宏一样，## 而eval本身也是这样的批量实现方式"
   (interactive)
