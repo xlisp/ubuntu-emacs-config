@@ -29,6 +29,22 @@
   (interactive)
   (insert "(clojure.walk/postwalk-demo [[1 2] [3 4 [5 6]] [7 8]])"))
 
+(defun print-tree ()
+  "打印树的结构先后顺序"
+  (interactive)
+  (insert "
+(defn print-tree [original]
+  (loop [loc (zip/seq-zip (seq original))]
+    (if (zip/end? loc)
+      (zip/root loc)
+      (recur (zip/next
+                (do (println (zip/node loc))
+                    loc))))))
+(print-tree [1 '(a (i ii iii) c) 2])
+"
+))
+
+
 (defun postwalk-any ()
   "通过类型特征工程来cond递归解释 => 深度学习自动化特征工程"
   (interactive)
