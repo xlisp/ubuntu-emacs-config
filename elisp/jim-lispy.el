@@ -119,7 +119,7 @@
               ((string-match "\\(.*\\)@\\(.*\\)" regionp) (message ""))
               (t
                (progn ;; 变成clojure数据来处理成css
-                 (message (concat ":" cname "" regionp))
+                 (message (concat ":" cname "" (replace-regexp-in-string ":style" "" regionp)))
                  (kill-region start end)
                  (insert (concat ":class \"" cname "\""))))))))
 
