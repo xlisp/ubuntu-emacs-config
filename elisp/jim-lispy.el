@@ -99,6 +99,29 @@
    (interactive)
    (re-search-forward "tip2" nil t)))
 
+(global-set-key
+ (kbd "C-c C-8")
+ (lambda ()
+   (interactive)
+   (re-search-forward "{" nil t)))
+
+(defun get-class-name ()
+  (format "classId-%d" (random 999999999999)))
+
+;; 选中`:style {...}` 执行替换为`:class "id" `
+(defun get-selected-text (start end)
+  (interactive "r")
+    (if (use-region-p)
+        (let* ((regionp (buffer-substring start end))
+               (cname (get-class-name)))
+            (progn (message (concat cname " => " regionp))
+                   (kill-region start end)
+                   (insert (concat ":class \"" cname "\""))
+          ))))
+
+;; 
+(global-set-key (kbd "C-c C-g") 'get-selected-text)
+
 ;; (re-search-forward "tip2" nil t)
 
 (provide 'jim-lispy)
