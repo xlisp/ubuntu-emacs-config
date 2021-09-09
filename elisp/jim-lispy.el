@@ -111,16 +111,30 @@
 ;; 选中`:style {...}` 执行替换为`:class "id" `
 (defun get-selected-text (start end)
   (interactive "r")
-    (if (use-region-p)
-        (let* ((regionp (buffer-substring start end))
-               (cname (get-class-name)))
-            (progn (message (concat cname " => " regionp))
-                   (kill-region start end)
-                   (insert (concat ":class \"" cname "\""))
-          ))))
+  (if (use-region-p)
+      (let* ((regionp (buffer-substring start end))
+             (cname (get-class-name)))
+        (cond ((string-match "\\(.*\\)\(\\(.*\\)" regionp) (message "======"))
+              ((string-match "\\(.*\\)\)\\(.*\\)" regionp) (message "======"))
+              ((string-match "\\(.*\\)@\\(.*\\)" regionp) (message "======"))
+              (t
+               (progn
+                 (message (concat cname " => " regionp))
+                 (kill-region start end)
+                 (insert (concat ":class \"" cname "\""))))))))
 
 ;; 
 (global-set-key (kbd "C-c C-g") 'get-selected-text)
+
+(defun message-clear ()
+  (interactive "r")
+  (message (format "=======================%d\n\n\n\n\n\n" (random 999999999999))))
+
+(global-set-key
+ (kbd "C-c C-9")
+ (lambda ()
+   (interactive)
+   (re-search-forward "}" nil t)))
 
 ;; (re-search-forward "tip2" nil t)
 
