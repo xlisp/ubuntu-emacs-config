@@ -114,14 +114,20 @@
   (if (use-region-p)
       (let* ((regionp (buffer-substring start end))
              (cname (get-class-name)))
-        (cond ((string-match "\\(.*\\)\(\\(.*\\)" regionp) (message "======"))
-              ((string-match "\\(.*\\)\)\\(.*\\)" regionp) (message "======"))
-              ((string-match "\\(.*\\)@\\(.*\\)" regionp) (message "======"))
+        (cond ((string-match "\\(.*\\)\(\\(.*\\)" regionp) (message ""))
+              ((string-match "\\(.*\\)\)\\(.*\\)" regionp) (message ""))
+              ((string-match "\\(.*\\)@\\(.*\\)" regionp) (message ""))
               (t
-               (progn
-                 (message (concat cname " => " regionp))
+               (progn ;; 变成clojure数据来处理成css
+                 (message (concat ":" cname "" regionp))
                  (kill-region start end)
                  (insert (concat ":class \"" cname "\""))))))))
+
+(defun get-selected-text-base (start end)
+  (interactive "r")
+    (if (use-region-p)
+        (let ((regionp (buffer-substring start end)))
+            (message regionp))))
 
 ;; 
 (global-set-key (kbd "C-c C-g") 'get-selected-text)

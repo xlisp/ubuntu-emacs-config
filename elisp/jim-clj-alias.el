@@ -249,4 +249,10 @@
     (sleep-for 2)
     (rename-buffer (replace-regexp-in-string " " " CLJS " (buffer-name)))))
 
+(defun eval-clj-selected (start end)
+  (interactive "r")
+    (if (use-region-p)
+        (let ((regionp (buffer-substring start end)))
+            (message (eval-clj-code regionp)))))
+
 (provide 'jim-clj-alias)
