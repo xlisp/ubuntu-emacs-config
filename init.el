@@ -395,6 +395,12 @@
 (defun tabnine-require ()
   (interactive)
   (require 'jim-tabnine))
+
+;; 代理的repl会引起的编辑错误: 需要关掉disable-company
+(defun disable-company ()
+  (interactive)
+  (global-company-mode -1))
+
 ;;------ 连接clojure和elisp的clomacs(包装了cider)
 (add-to-list 'load-path "~/.emacs.d/postwalk-editer/src/elisp/")
 (require 'postwalk-editer)
