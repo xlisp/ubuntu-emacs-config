@@ -289,7 +289,7 @@
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+;;(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (defun my-clojure-mode-hook ()
   (clj-refactor-mode 1)
