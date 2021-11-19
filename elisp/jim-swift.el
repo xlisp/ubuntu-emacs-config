@@ -15,5 +15,15 @@
        "M-x" "swift-mode:send-buffer"
        "<return>") ))))
 
+(add-hook
+ 'swift-mode-hook
+ (lambda ()
+   (global-set-key
+    (kbd "C-c C-c")
+    (lambda ()
+      (interactive)
+      (push-it-real-good
+       "M-x" "swift-mode:send-region"
+       "<return>") ))))
 
 (provide 'jim-swift)
