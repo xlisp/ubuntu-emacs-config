@@ -52,6 +52,7 @@
         web-mode
         intero
         haskell-mode
+        swift-mode
         racket-mode))
 
 (package-initialize)
@@ -391,6 +392,7 @@
 (require 'jim-haskell)
 (require 'jim-dired)
 (require 'jim-datalog)
+(require 'jim-swift)
 
 (defun tabnine-require ()
   (interactive)

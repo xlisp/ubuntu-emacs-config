@@ -63,3 +63,5 @@ https://docs.datomic.com/on-prem/query.html"
     (message (eval-clj-code code))))
 
 (provide 'jim-datalog)
+;;
+
