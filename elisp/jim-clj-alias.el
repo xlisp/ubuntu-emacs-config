@@ -219,6 +219,13 @@
   (interactive)
   (insert " (cljs.pprint/pprint (js->clj js/obj :keywordize-keys true))"))
 
+(defun cond-map ()
+  (interactive)
+  (insert "(cond-> {:id 1} 
+a (assoc :name 11)
+b (assoc :title 22))
+ )")
+
 (defun cljc-fn ()
   (interactive)
   (insert "(defn read-stri [s]

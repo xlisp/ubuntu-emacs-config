@@ -429,3 +429,6 @@
 (set-default-coding-systems 'utf-8)
 ;;
 (put 'upcase-region 'disabled nil)
+;;(setq mac-option-modifier 'none)
+;;(setq mac-command-modifier 'meta)
+
