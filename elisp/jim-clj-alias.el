@@ -224,7 +224,7 @@
   (insert "(cond-> {:id 1} 
 a (assoc :name 11)
 b (assoc :title 22))
- )")
+ "))
 
 (defun cljc-fn ()
   (interactive)
