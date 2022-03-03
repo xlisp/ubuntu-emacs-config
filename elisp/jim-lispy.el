@@ -111,6 +111,12 @@
    (interactive)
    (re-search-forward "{" nil t)))
 
+(global-set-key
+ (kbd "C-c C--")
+ (lambda ()
+   (interactive)
+   (re-search-forward "(" nil t)))
+
 (defun get-class-name ()
   (format "classId-%d" (random 999999999999)))
 
