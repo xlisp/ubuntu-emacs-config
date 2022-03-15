@@ -162,6 +162,11 @@
   (interactive)
   (shell-command-to-string "git grep --cached -Il ''"))
 
+(defun pinyin (name)
+  (interactive "sName")
+  (insert
+   (shell-command-to-string  (concat "~/anaconda3/bin/python ~/.emacs.d/scripts/pinyin.py " name))))
+
 (defun dblue ()
   (interactive)
   (insert "\"#5c6b74\""))
