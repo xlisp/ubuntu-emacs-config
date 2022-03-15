@@ -174,6 +174,7 @@
   (if (use-region-p)
       (let* ((regionp (buffer-substring start end)))
         (progn
+          (kill-region start end)
           (insert
            (shell-command-to-string
             (concat "~/anaconda3/bin/python ~/.emacs.d/scripts/pinyin.py "
