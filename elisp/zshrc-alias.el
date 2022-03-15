@@ -162,10 +162,24 @@
   (interactive)
   (shell-command-to-string "git grep --cached -Il ''"))
 
+
 (defun pinyin (name)
   (interactive "sName")
   (insert
    (shell-command-to-string  (concat "~/anaconda3/bin/python ~/.emacs.d/scripts/pinyin.py " name))))
+
+;; 多模使用拼音
+(defun pinyin-multiple-cursors (start end)
+  (interactive "r")
+  (if (use-region-p)
+      (let* ((regionp (buffer-substring start end)))
+        (progn
+          (insert
+           (shell-command-to-string
+            (concat "~/anaconda3/bin/python ~/.emacs.d/scripts/pinyin.py "
+                    (replace-regexp-in-string "\\." "-" regionp))))))))
+
+(global-set-key (kbd "C-c C-[") 'pinyin-multiple-cursors)
 
 (defun dblue ()
   (interactive)

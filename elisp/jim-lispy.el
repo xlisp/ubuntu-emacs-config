@@ -137,11 +137,11 @@
 
 (defun get-selected-text-base (start end)
   (interactive "r")
-    (if (use-region-p)
-        (let ((regionp (buffer-substring start end)))
-            (message regionp))))
+  (if (use-region-p)
+      (let ((regionp (buffer-substring start end)))
+        (message regionp))))
 
-;; 
+;; 多模操作multiple-cursors.el可用
 (global-set-key (kbd "C-c C-g") 'get-selected-text)
 
 (defun message-clear ()
