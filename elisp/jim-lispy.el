@@ -105,6 +105,20 @@
    (interactive)
    (re-search-forward "tip2" nil t)))
 
+(comment
+;; 通过C-c C-7来批量编辑生成函数
+(re-frame/reg-event-fx
+    :tip2
+    (fn tip2
+      [{:keys [db] :as cofx}
+       [_ ]]
+      {:db db
+       :http {:uri "/ot/tip2"
+              :params {}
+              :callback {:succ (fn [data] )}}}))
+
+)
+
 (global-set-key
  (kbd "C-c C-8")
  (lambda ()
