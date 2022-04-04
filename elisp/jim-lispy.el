@@ -81,11 +81,14 @@
  (lambda ()
    (interactive)
    (re-search-forward ":" nil t)))
+
 (global-set-key
  (kbd "C-c C-4")
  (lambda ()
    (interactive)
-   (re-search-forward " " nil t)))
+   (insert-mark-id)
+   ;;(re-search-forward " " nil t) 
+))
 
 (global-set-key
  (kbd "C-c C-5")
@@ -99,12 +102,16 @@
    (interactive)
    (re-search-forward "\\[" nil t)))
 
+(setq forword-key "tip2")
+
 ;; 通用的可以批量跳转到任意的位置！
 (global-set-key
  (kbd "C-c C-7")
  (lambda (name)
    (interactive "sName")
-   (re-search-forward name nil t)))
+   (setq forword-key name)
+   ;;(re-search-forward name nil t)
+  ))
 
 (comment
 ;; 通过C-c C-7来批量编辑生成函数
@@ -130,7 +137,7 @@
  (kbd "C-c C--")
  (lambda ()
    (interactive)
-   (re-search-forward "(" nil t)))
+   (re-search-forward forword-key nil t)))
 
 (defun get-class-name ()
   (format "classId-%d" (random 999999999999)))
