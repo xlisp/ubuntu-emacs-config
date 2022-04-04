@@ -99,11 +99,12 @@
    (interactive)
    (re-search-forward "\\[" nil t)))
 
+;; 通用的可以批量跳转到任意的位置！
 (global-set-key
  (kbd "C-c C-7")
- (lambda ()
-   (interactive)
-   (re-search-forward "tip2" nil t)))
+ (lambda (name)
+   (interactive "sName")
+   (re-search-forward name nil t)))
 
 (comment
 ;; 通过C-c C-7来批量编辑生成函数
@@ -133,6 +134,11 @@
 
 (defun get-class-name ()
   (format "classId-%d" (random 999999999999)))
+
+;;用来给代码做标记,被调用地方太多，无法判断来源的问题！
+(defun insert-mark-id ()
+  (interactive)
+  (insert (format "id-%d" (random 999999999999))))
 
 ;; 选中`:style {...}` 执行替换为`:class "id" `
 (defun get-selected-text (start end)
