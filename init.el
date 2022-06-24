@@ -393,6 +393,7 @@
 (require 'jim-dired)
 (require 'jim-datalog)
 (require 'jim-swift)
+(require 'jim-hulu)
 
 (defun tabnine-require ()
   (interactive)
@@ -431,5 +432,3 @@
 (put 'upcase-region 'disabled nil)
 ;;(setq mac-option-modifier 'none)
 ;;(setq mac-command-modifier 'meta)
-
-
