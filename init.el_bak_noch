@@ -5,10 +5,10 @@
 ;; 2. 抽象出来可以复用的库: 复用^2 = 复利
 ;; 3. Emacs配置,自我设计工具: 磨刀不误砍柴工
 
-(setq package-archives
-      '(("gnu"   . "http://1.15.88.122/gnu/")
-        ("melpa" . "http://1.15.88.122/melpa/")
-        ("melpa-stable" . "http://1.15.88.122/stable-melpa/")))
+;;(setq package-archives
+;;      '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
+;;        ("melpa" . "http://elpa.emacs-china.org/melpa/")
+;;        ("melpa-stable" . "http://elpa.emacs-china.org/melpa-stable/")))
 
 ;;helm
 ;;helm-projectile
@@ -66,7 +66,7 @@
     (package-install package t)))
 
 ;; my setting
-(load-theme 'doom-molokai t)
+;;(load-theme 'doom-molokai t)
 
 
 (windmove-default-keybindings)
@@ -76,9 +76,9 @@
 
 ;;(helm-mode 1)
 (ivy-mode 1) ;; 现在的M-x的列表是ivy的列表: 不能按照历史来排序
-(ivy-prescient-mode 1)
+;;(ivy-prescient-mode 1)
 
-(counsel-projectile-mode 1)
+;;(counsel-projectile-mode 1)
 
 ;;(require 'helm-config)
 ;;(helm-projectile-on)
