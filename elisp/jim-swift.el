@@ -66,6 +66,58 @@
         }
 "))
 
+(defun svc-jump-to-swiftui ()
+  (interactive)
+  (insert "
+        let hostingController = UIHostingController(rootView: R2D2SwiftUIView())
+        self.navigationController?.pushViewController(hostingController, animated: true)
+"))
+
+(defun sfu-jump-to-storyboard-vc ()
+  (interactive)
+  (insert "
+// 会加载故事版的版本
+struct R2D2UIKitView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = R2D2Controller
+
+    func makeUIViewController(context: Context) -> R2D2Controller {
+        let sb = UIStoryboard.init(name: \"HuluStoryboard\", bundle: nil)
+        let viewController = sb.instantiateViewController(identifier: \"R2D2Controller\") as! R2D2Controller
+        return viewController
+    }
+
+    func updateUIViewController(_ uiViewController: R2D2Controller, context: Context) {
+
+    }
+}
+//
+NavigationLink(destination: R2D2UIKitView()) { Text(\"故事版\") }
+"))
+
+(defun sfu-jump-to-storyboard-vc2 ()
+  (interactive)
+  (insert "
+//故事版UI加一个UIViewControllerRepresentable代理 => 不加载故事版的UIKit版本
+struct R2D2UIKitViewControllerAsSwiftUI: UIViewControllerRepresentable {
+  typealias UIViewControllerType = R2D2Controller
+
+  func makeUIViewController(context: Context) -> R2D2Controller {
+    return R2D2Controller()
+  }
+
+  func updateUIViewController(_ uiViewController: R2D2Controller, context: Context) {
+    print(\"update view controller\")
+  }
+}
+// ///
+    VStack {
+      Text(\"Hello, World!\")
+      R2D2UIKitViewControllerAsSwiftUI()
+            .frame(width: 300, height: 100)
+            .background(.red)
+    }
+"))
+
 ;; === 模板yas TODO
 (defun a1 ()
   (interactive)
