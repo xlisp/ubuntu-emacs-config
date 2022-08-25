@@ -123,6 +123,11 @@ struct R2D2UIKitViewControllerAsSwiftUI: UIViewControllerRepresentable {
     }
 "))
 
+;; 静态分析用XCode，编辑和阅读还是Emacs最快，还有批量编辑代码生成
+(defun xcode ()
+  (interactive)
+  (shell-command-to-string (concat "open " (buffer-file-name))))
+
 ;; === 模板yas TODO
 (defun a1 ()
   (interactive)
