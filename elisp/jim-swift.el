@@ -26,4 +26,19 @@
        "M-x" "swift-mode:send-region"
        "<return>") ))))
 
+;; 放常用的一些swift代码模式片段，Emacs来快速批量编辑，就像当初编辑生成小程序一样的,Elisp结合swfit代码来动态生成代码
+(defun flex-row-uikit ()
+  (interactive)
+  (insert "
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 5
+        return stackView
+    }()
+
+    // stackView.addArrangedSubview(view1)
+"))
+
+
 (provide 'jim-swift)
