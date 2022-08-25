@@ -40,5 +40,35 @@
     // stackView.addArrangedSubview(view1)
 "))
 
+(defun label-uikit ()
+  (interactive)
+  (insert "
+        let titleView = UILabel()
+        titleView.font = UIFont.systemFont(ofSize: 18)
+        titleView.text = hulu
+"))
+
+(defun button-uikit ()
+  (interactive)
+  (insert "
+        let buttonr2 = UIButton()
+        buttonr2.setImage(UIImage(named: \"r2d2\"), for: .normal)
+        view.addSubview(buttonr2) { make in
+            make.width.equalTo(32)
+            make.height.equalTo(32)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-40)
+            make.top.equalToSuperview().offset(-20)
+        }
+        buttonr2.addTarget(self, action: #selector(didTapR2D2Se), for: .touchUpInside)
+        //
+        @objc private func didTapR2D2Se() {
+        }
+"))
+
+;; === 模板yas TODO
+(defun a1 ()
+  (interactive)
+  (insert ""))
 
 (provide 'jim-swift)
