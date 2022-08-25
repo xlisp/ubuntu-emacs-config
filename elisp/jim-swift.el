@@ -53,6 +53,7 @@
   (insert "
         let buttonr2 = UIButton()
         buttonr2.setImage(UIImage(named: \"r2d2\"), for: .normal)
+        // view.addSubview(buttonr2) && buttonr2.snp.makeConstraints { (make) ...
         view.addSubview(buttonr2) { make in
             make.width.equalTo(32)
             make.height.equalTo(32)
@@ -65,6 +66,10 @@
         @objc private func didTapR2D2Se() {
         }
 "))
+
+(defun alert-uikit  ()
+  (interactive)
+  (insert "self.showToast(message: aaa)"))
 
 (defun svc-jump-to-swiftui ()
   (interactive)

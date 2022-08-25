@@ -221,7 +221,7 @@
 
 (defun cond-map ()
   (interactive)
-  (insert "(cond-> {:id 1} 
+  (insert "(cond-> {:id 1}
 a (assoc :name 11)
 b (assoc :title 22))
  "))
