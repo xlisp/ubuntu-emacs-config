@@ -145,7 +145,7 @@ topVC?.view.makeToast(message, position: .center)
 
 ;;  ===== swift ui dsl => su ! => 用熟悉的东西来生成不熟悉的东西，中间用函数转换一下生成规则就行 => 就像小程序xml的生成一样
 (defun flex-column-su ()
-  (interactive)
+  (interactive)                         ;; 或者 HStack
   (insert "VStack {
 }.padding(.horizontal, 20.0)
 .navigationTitle(\"标题\")"))
@@ -208,6 +208,19 @@ Text(\"button\")
             }
         )
 "))
+
+(defun input-su ()
+  (interactive)
+  (insert "
+@State private var name = ""
+//
+ TextField(\"待办事项\", text: $name)
+   .padding()
+   .background(Color(UIColor.tertiarySystemFill))
+   .cornerRadius(9)
+   .font(.system(size: 24, weight: .bold, design: .default))
+"))
+
 
 ;; 静态分析用XCode，编辑和阅读还是Emacs最快，还有批量编辑代码生成
 (defun xcode ()
