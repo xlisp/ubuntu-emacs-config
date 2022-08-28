@@ -146,7 +146,9 @@ topVC?.view.makeToast(message, position: .center)
 ;;  ===== swift ui dsl => su ! => 用熟悉的东西来生成不熟悉的东西，中间用函数转换一下生成规则就行 => 就像小程序xml的生成一样
 (defun flex-column-su ()
   (interactive)
-  (insert "VStack {}"))
+  (insert "VStack {
+}.padding(.horizontal, 20.0)
+.navigationTitle(\"标题\")"))
 
 (defun flex-row-su ()
   (interactive)
@@ -154,6 +156,37 @@ topVC?.view.makeToast(message, position: .center)
 }.frame(height: 250.0)
 .padding(.top, 60.0)"))
 
+(defun text-su ()
+  (interactive)
+  (insert "
+Text(\"button\")
+    .font(.caption)
+    .foregroundColor(type.color)
+    .padding(.horizontal, 10.0)
+    .padding(.vertical, 4.0)
+    .overlay(RoundedRectangle(cornerRadius: 16).stroke(type.color, lineWidth: 1))
+"))
+
+(defun button-su ()
+  (interactive)
+  (insert
+   "
+            Button {
+                viewModel.toggleRecognitionStatus()
+            } label: {
+                Text(\"Start\")
+                    .font(.subheadline)
+                    .bold()
+                    .foregroundColor(.white)
+                    .frame(height: 44.0)
+                    .frame(maxWidth: .infinity)
+                    .background(Color.gray)
+                    .cornerRadius(8.0)
+            }
+            .disabled(!viewModel.isAuthorized)
+            .padding(.bottom, 16.0)
+"
+   ))
 
 ;; 静态分析用XCode，编辑和阅读还是Emacs最快，还有批量编辑代码生成
 (defun xcode ()
