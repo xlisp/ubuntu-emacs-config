@@ -123,6 +123,38 @@ struct R2D2UIKitViewControllerAsSwiftUI: UIViewControllerRepresentable {
     }
 "))
 
+(defun timeout-sw ()
+  (interactive)
+  (insert "
+Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(finishedRefresh), userInfo: nil, repeats: true)
+//
+    @objc func finishedRefresh () {
+        // code
+    }
+"
+          ))
+
+(defun topVC-uikit ()
+  (interactive)
+  (insert
+   "
+let topVC = UIApplication.getTopViewController()
+topVC?.view.makeToast(message, position: .center)
+"
+   ))
+
+;;  ===== swift ui dsl => su ! => 用熟悉的东西来生成不熟悉的东西，中间用函数转换一下生成规则就行 => 就像小程序xml的生成一样
+(defun flex-column-su ()
+  (interactive)
+  (insert "VStack {}"))
+
+(defun flex-row-su ()
+  (interactive)
+  (insert "ZStack {
+}.frame(height: 250.0)
+.padding(.top, 60.0)"))
+
+
 ;; 静态分析用XCode，编辑和阅读还是Emacs最快，还有批量编辑代码生成
 (defun xcode ()
   (interactive)
@@ -131,6 +163,11 @@ struct R2D2UIKitViewControllerAsSwiftUI: UIViewControllerRepresentable {
 ;; === 模板yas TODO
 (defun a1 ()
   (interactive)
-  (insert ""))
+  (insert
+   "(defun a1 ()
+  (interactive)
+  (insert \"\"))"
+   ))
+
 
 (provide 'jim-swift)
