@@ -188,6 +188,27 @@ Text(\"button\")
 "
    ))
 
+(defun for-erb-su ()
+  (interactive)
+  (insert "
+ ForEach(persons) { person in
+     Text(person.name)
+ }
+ .onMove(perform: $persons.move)
+ .onDelete(perform: $persons.remove)
+"))
+
+(defun list-su ()
+  (interactive)
+  (insert "
+        List {
+
+        }.navigationBarItems(trailing:
+            Button(\"Add\") {
+            }
+        )
+"))
+
 ;; 静态分析用XCode，编辑和阅读还是Emacs最快，还有批量编辑代码生成
 (defun xcode ()
   (interactive)
