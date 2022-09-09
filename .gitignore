@@ -16,7 +16,7 @@ ido.last
 recentf
 smex-items
 temp.el
-elisp/jim-env.el
+#elisp/jim-env.el
 .cpcache/
 .nrepl-port
 projectile.cache
