@@ -221,6 +221,16 @@ Text(\"button\")
    .font(.system(size: 24, weight: .bold, design: .default))
 "))
 
+;; 弹出菜单
+(defun pop-menu-su ()
+  (interactive)
+  (insert "
+        Menu(\"Options\") {
+            Button(\"Order Now\", action: placeOrder)
+            Button(\"Adjust Order\", action: adjustOrder)
+            Button(\"Cancel\", action: cancelOrder)
+        }
+"))
 
 ;; 静态分析用XCode，编辑和阅读还是Emacs最快，还有批量编辑代码生成
 (defun xcode ()
