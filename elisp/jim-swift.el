@@ -232,6 +232,17 @@ Text(\"button\")
         }
 "))
 
+(defun image-su ()
+  (interactive)
+  (insert "
+  Image(uiImage: UIImage(contentsOfFile: documentsPath)!)
+     .resizable()
+     .aspectRatio(contentMode: .fill)
+     .frame(width: 250.0, height: 250.0, alignment: .center)
+     .border(Color.blue, width: 3.0)
+     .clipped()
+"))
+
 ;; 静态分析用XCode，编辑和阅读还是Emacs最快，还有批量编辑代码生成
 (defun xcode ()
   (interactive)
