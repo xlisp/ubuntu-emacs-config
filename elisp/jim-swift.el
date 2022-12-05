@@ -46,6 +46,13 @@
         let titleView = UILabel()
         titleView.font = UIFont.systemFont(ofSize: 18)
         titleView.text = hulu
+        titleView.textColor = .red
+        contentView.addSubview(titleView) { make in
+            make.top.equalTo(8)
+            make.height.equalTo(30)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+        }
 "))
 
 (defun button-uikit ()
