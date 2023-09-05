@@ -101,7 +101,7 @@
   (with-current-buffer (get-cljs-cider-buffer)
     (eval-clj-code
      (format
-      "(wechat-clj.util/get-class-names-styles \"%s\")"
+      "(common.util/get-class-names-styles \"%s\")"
       class-name))))
 
 (defun mark-replace (mark-op-fn)

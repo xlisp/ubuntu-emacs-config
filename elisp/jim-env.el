@@ -19,11 +19,11 @@
   (setq start-clj-file "/Users/clojure/FaceMashPro/functor-api/src/clj/functor_api/core.clj")
   (call-interactively #'jackj))
 
-(defun functor-api-bak-jack ()
+(defun hulunote-en-jack ()
   (interactive)
-  (setq project-name "FaceMashPro/functor-api-bak")
-  (setq start-cljs-file "/Users/clojure/FaceMashPro/functor-api-bak/src/cljs/hulunote/core.cljs")
-  (setq start-clj-file "/Users/clojure/FaceMashPro/functor-api-bak/src/clj/functor_api/core.clj")
+  (setq project-name "hulunote-team/hulunote-backend-en")
+  (setq start-cljs-file "/Users/clojure/hulunote-team/hulunote-backend-en/src/cljs/hulunote/core.cljs")
+  (setq start-clj-file "/Users/clojure/hulunote-team/hulunote-backend-en/src/clj/functor_api/core.clj")
   (call-interactively #'jackj))
 
 (defun fp-visualgo-jack ()
