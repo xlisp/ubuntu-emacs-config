@@ -181,6 +181,13 @@
    (interactive)
    (re-search-forward "}" nil t)))
 
+;; 先mutil多选"<img ", 然后编辑为<image , 移动到> 替换为/> 即可！
+(global-set-key
+ (kbd "C-c C-p")
+ (lambda ()
+   (interactive)
+   (re-search-forward ">" nil t)))
+
 ;; (re-search-forward "tip2" nil t)
 
 (provide 'jim-lispy)

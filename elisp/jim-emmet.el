@@ -289,9 +289,10 @@
 
 ;; 流程:
 ;; 1. hiccup生成的页面复制过来
-;; 2. replace div view
-;; 3. replace em 为 rpx
-;; 4. joiin all two styles
+;; 2. replace div view: M-x replace-div->view
+;; 3. replace em 为 rpx: M-x replace-rem->rpx
+;; 4. joiin all two styles: mutil 选中 "view style="" =>  M-j 或者 M-x join-two-styles ## 多模操作,把class的内>容，然后和行内样式内容合并到一个行内样式里面！
+;; 5. image 和 input: 先mutil多选"<img ", 然后编辑为<image , 移动到> 替换为/> 即可！
 ;; 注意: 样式差不多了,image必须定义高度和宽度才行,不能只定义宽度 ，然后item也必须给高度
 
 ;; --------------- mini-program-cljs 和 Emacs的结合的函数 -------

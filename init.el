@@ -433,3 +433,4 @@
 ;;(setq mac-option-modifier 'none)
 ;;(setq mac-command-modifier 'meta)
 
+(put 'dired-find-alternate-file 'disabled nil)
