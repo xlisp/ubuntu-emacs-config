@@ -41,7 +41,7 @@
  )
 
 ;; (my-make-process-call "ls") ;;可以工作的
-;; (my-make-process-call "mytail") # `tail -f  /Users/clojure/PytorchPro/pytorch/README.md `
+;; (my-make-process-call "mytail") # `tail -f  /Users/lisp/PytorchPro/pytorch/README.md `
 (defun my-make-process-call (program &rest args)
   "Call PROGRAM with ARGS, using BUFFER as stdout+stderr.
 If BUFFER is nil, `princ' is used to forward its stdout+stderr."
@@ -84,7 +84,7 @@ If BUFFER is nil, `princ' is used to forward its stdout+stderr."
 (defun get-version-mini-pro-cljs ()
   (let*  ((stris
            (->
-            "cat /Users/clojure/CljPro/wechat-clj/mini-program-cljs/package.json"
+            "cat /Users/lisp/CljPro/wechat-clj/mini-program-cljs/package.json"
             (shell-command-to-string)
             (split-string "\n")))
           (match-stri (format "%s"

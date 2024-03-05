@@ -1,5 +1,5 @@
 ;; for dev: 设置当前的路径在哪里
-;; (setq  default-directory "/Users/clojure/BCPro/biancheng-api")
+;; (setq  default-directory "/Users/lisp/BCPro/biancheng-api")
 
 ;; (vc-root-dir) ;;=> 获取当前的git的root在哪里
 

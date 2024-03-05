@@ -17,7 +17,7 @@
 
 (defonce embeddings
   (LmdbEmbeddingsReader
-    "/Users/clojure/tensorflow-lmdb"))
+    "/Users/lisp/tensorflow-lmdb"))
 
 (comment
   (get-word-vector "python")

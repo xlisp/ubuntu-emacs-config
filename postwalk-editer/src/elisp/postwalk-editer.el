@@ -113,7 +113,7 @@
   (let* ((text8-file (postwalk-editer-generate-project-txt8-files))
          (bin-file-name (replace-regexp-in-string ".text8" ".bin" text8-file))
          (cmd-list
-          (list  "/Users/clojure/CppPro/word2vec/bin/word2vec"
+          (list  "/Users/lisp/CppPro/word2vec/bin/word2vec"
                  "-train" text8-file
                  "-output" bin-file-name
                  "-cbow" "1" "-size" "200" "-window" "8" "-negative" "25" "-hs" "0" "-sample" "1e-4" "-threads" "20" "-binary" "1" "-iter" "15"))
