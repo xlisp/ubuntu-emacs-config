@@ -20,6 +20,10 @@
     ("ex" . "/usr/local/bin/elixir")
     ("exs" . "/usr/local/bin/elixir")))
 
+;; cat /usr/local/bin/gorun
+;; #!/bin/bash
+;; go run $1
+
 (defconst jw-eval-buffer-name "*EVALBUFFER*")
 
 (defun jw-eval-buffer ()
