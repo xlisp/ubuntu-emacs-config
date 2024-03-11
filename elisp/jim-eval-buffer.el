@@ -9,6 +9,7 @@
     ("swift" . "/usr/bin/swift")
     ("sh" . "/bin/bash")
     ("cpp" . "/usr/bin/clang++")
+    ("go" . "/usr/local/bin/gorun")
     ("ss" . "/usr/bin/scheme")
     ("scm" . "/usr/local/bin/scheme")
     ("rkt" . "/usr/bin/racket")
@@ -78,6 +79,17 @@ console.log(
 puts -> {
   123
 }[]
+")
+
+(defun jw-eval-go ()
+  (interactive)
+  "
+package main
+import \"fmt\"
+
+func main() {
+	fmt.Println(\" \")
+}
 ")
 
 (defun jw-eval-cpp ()
