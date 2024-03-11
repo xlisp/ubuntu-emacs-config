@@ -53,7 +53,9 @@
         intero
         haskell-mode
         swift-mode
-        racket-mode))
+        racket-mode
+        ;; go-mode
+))
 
 (package-initialize)
 
@@ -64,6 +66,10 @@
   (when (and (assq package package-archive-contents)
              (not (package-installed-p package)))
     (package-install package t)))
+
+(add-to-list 'load-path "~/.emacs.d/go-mode.el")
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
 ;; my setting
 (load-theme 'doom-molokai t)
@@ -394,6 +400,7 @@
 (require 'jim-datalog)
 (require 'jim-swift)
 (require 'jim-hulu)
+(require 'jim-go)
 
 (defun tabnine-require ()
   (interactive)
@@ -434,3 +441,4 @@
 ;;(setq mac-command-modifier 'meta)
 
 (put 'dired-find-alternate-file 'disabled nil)
+

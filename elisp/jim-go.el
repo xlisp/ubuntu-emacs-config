@@ -4,7 +4,7 @@
 ;; go install golang.org/x/tools/gopls@latest
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; install go-mode:
-(package-install 'go-mode)
+;;(package-install 'go-mode) ;;=> 变成手动安装了：https://github.com/dominikh/go-mode.el
 ;; auto import before save
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
@@ -13,6 +13,9 @@
           (lambda ()
             (setq indent-tabs-mode 1)
             (setq tab-width 4)))
+
+(comment 
+
 ;; install Emacs LSP client package.
 (package-install 'lsp-mode)
 (use-package lsp-mode
@@ -54,6 +57,7 @@
   :ensure t
   :init (global-flycheck-mode))
 
+)
 ;; auto-complete
 (package-install 'company)
 (global-company-mode)
