@@ -19,6 +19,13 @@
   (setq start-clj-file "/Users/lisp/OfCourseIStillLoveYou/hulunote-backend/src/clj/functor_api/core.clj")
   (call-interactively #'jackj))
 
+(defun algorithm-visualizer-jack ()
+  (interactive)
+  (setq project-name "CljPro/algorithm-visualizer-gpter-fper")
+  (setq start-cljs-file "/Users/lisp/CljPro/algorithm-visualizer-gpter-fper/src/main/cljs/functional_programming_visualgo_fp/app.cljs")
+  (setq start-clj-file "/Users/lisp/CljPro/algorithm-visualizer-gpter-fper/src/main/clojure/functional_programming_visualgo/core.clj")
+  (call-interactively #'jackj))
+
 (defun hulunote-backend-jack ()
   (interactive)
   (setq project-name "hulunote-team/hulunote-backend")
