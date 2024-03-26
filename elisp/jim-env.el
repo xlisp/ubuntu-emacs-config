@@ -35,9 +35,9 @@
 
 (defun hulunote-en-jack ()
   (interactive)
-  (setq project-name "hulunote-team/hulunote-backend-en")
-  (setq start-cljs-file "/Users/lisp/hulunote-team/hulunote-backend-en/src/cljs/hulunote/core.cljs")
-  (setq start-clj-file "/Users/lisp/hulunote-team/hulunote-backend-en/src/clj/functor_api/core.clj")
+  (setq project-name "OfCourseIStillLoveYou/hulunote-backend-en")
+  (setq start-cljs-file "/Users/lisp/OfCourseIStillLoveYou/hulunote-backend-en/src/cljs/hulunote/core.cljs")
+  (setq start-clj-file "/Users/lisp/OfCourseIStillLoveYou/hulunote-backend-en/src/clj/functor_api/core.clj")
   (call-interactively #'jackj))
 
 (defun fp-visualgo-jack ()
