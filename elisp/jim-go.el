@@ -59,8 +59,8 @@
 
 )
 ;; auto-complete
-(package-install 'company)
-(global-company-mode)
+;;(package-install 'company)
+;;(global-company-mode)
 
 (provide 'jim-go)
 ;;

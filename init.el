@@ -22,7 +22,7 @@
         clojure-mode
         smartparens
         projectile
-        company
+        ;;company
         ag
         counsel-projectile
         monokai-theme
@@ -30,7 +30,7 @@
         multiple-cursors
         easy-kill
         yasnippet
-        company-posframe
+        ;;company-posframe
         clj-refactor
         magit
         neotree
@@ -45,9 +45,9 @@
         request
         ripgrep
         ;;esup => “Symbolic link to Git-controlled source file; follow link? (yes or no) ” #60
-        company-tabnine
+        ;;company-tabnine
         emmet-mode
-        markdown-mode
+        ;; markdown-mode
         prescient
         ivy-prescient
         clomacs
@@ -88,7 +88,7 @@
 (windmove-default-keybindings)
 
 ;; (global-company-mode -1) ;;在mutil-term下面不用company补全
-(add-hook 'prog-mode-hook 'company-mode)
+;;(add-hook 'prog-mode-hook 'company-mode)
 
 ;;(helm-mode 1)
 (ivy-mode 1) ;; 现在的M-x的列表是ivy的列表: 不能按照历史来排序
@@ -273,16 +273,16 @@
 
 (yas-reload-all)
 
-(defun yas-or-company ()
-  (interactive)
-  (let ((yas/fallback-behavior 'return-nil))
-    (or (yas/expand)
-        ;; (company-complete-common) ;; 在空格处也会出来补全列表
-        (call-interactively #'company-indent-or-complete-common))))
+;;(defun yas-or-company ()
+;;  (interactive)
+;;  (let ((yas/fallback-behavior 'return-nil))
+;;    (or (yas/expand)
+;;        ;; (company-complete-common) ;; 在空格处也会出来补全列表
+;;        (call-interactively #'company-indent-or-complete-common))))
 
-(use-package company :bind
-  (("<tab>" . 'yas-or-company)
-   ("TAB" . 'yas-or-company)))
+;;(use-package company :bind
+;;  (("<tab>" . 'yas-or-company)
+;;   ("TAB" . 'yas-or-company)))
 
 (setq clojure-toplevel-inside-comment-form t)
 ;; 去掉强化的js补全,会导致很卡 => t是打开
@@ -386,7 +386,7 @@
              )
 (require 'zshrc-alias)  ;; zshrc alias的思想
 (require 'kungfu)
-(require 'code-search)
+;;(require 'code-search)
 (require 'jim-elisp-regexp)
 (require 'jim-proxy)
 (require 'jim-config)
@@ -400,7 +400,7 @@
 (require 'jim-emmet)
 (require 'jim-ivy)
 (require 'jim-process)
-(require 'jim-markdown)
+;;(require 'jim-markdown)
 (require 'jim-postwalk-editer)
 (require 'jim-miniprogram)
 (require 'jim-scheme)
