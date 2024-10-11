@@ -29,3 +29,5 @@ snippets/
 .cask/
 eaf/
 go-mode.el/
+eln-cache/
+straight/

@@ -1,0 +1,89 @@
+;; need proxy: https://github.com/radian-software/straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+(setq package-enable-at-startup nil)
+
+(setq  package-selected-packages
+      '(ivy
+        cider
+        clojure-mode
+        smartparens
+        projectile
+        ;; company
+        ag
+        counsel-projectile
+        monokai-theme
+        lispy
+        multiple-cursors
+        easy-kill
+        yasnippet
+        company-posframe
+        clj-refactor
+        magit
+        neotree
+        multi-term
+        exec-path-from-shell
+        vterm
+        doom-themes
+        use-package
+        dash
+        wgrep
+        wgrep-ag
+        request
+        ripgrep
+        ;;esup => “Symbolic link to Git-controlled source file; follow link? (yes or no) ” #60
+        company-tabnine
+        emmet-mode
+        markdown-mode
+        prescient
+        ivy-prescient
+        clomacs
+        s
+        web-mode
+        intero
+        haskell-mode
+        swift-mode
+        racket-mode
+        ;;term-keys
+        ein ;; M-x ein:run launches a jupyter process from emacs, or,
+        xonsh-mode ;; https://xon.sh/editors.html
+        async ;; 不能用老的同步思维来写了，sleep 3 然后再做，到底做完没有？ => https://github.com/jwiegley/emacs-async
+        reformatter ;;ruff-format
+        flycheck-mypy
+        gptel
+        ))
+
+;; FOR install: https://github.com/radian-software/straight.el
+(defun install-libs ()
+  (dolist (package package-selected-packages)
+    (straight-use-package package)))
+
+;; (straight-use-package "term-keys")
+
+(install-libs)
+
+;;
+
+(add-to-list 'load-path "~/.emacs.d/go-mode.el")
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
+;; my setting
+(load-theme 'doom-molokai t)
+
+
+(windmove-default-keybindings)
+
