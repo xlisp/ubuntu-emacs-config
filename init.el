@@ -1,19 +1,22 @@
-(require 'package)
+;; need proxy: https://github.com/radian-software/straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+(setq package-enable-at-startup nil)
 
-;; 当项目没有解决思路的时候可以做的三件事情:
-;; 1. 做容易的先,高阶化描述简单过程: 像兰切一样快速吃饱自己,而不是过早的完美主义卡死大脑流
-;; 2. 抽象出来可以复用的库: 复用^2 = 复利
-;; 3. Emacs配置,自我设计工具: 磨刀不误砍柴工
-
-(setq package-archives
-      '(("gnu"   . "http://1.15.88.122/gnu/")
-        ("melpa" . "http://1.15.88.122/melpa/")
-        ("melpa-stable" . "http://1.15.88.122/stable-melpa/")))
-
-;;helm
-;;helm-projectile
-;; M 是格式化多行, O变成一行, m选中表达式
-(setq package-selected-packages
+(setq  package-selected-packages
       '(ivy
         cider
         clojure-mode
@@ -41,7 +44,7 @@
         wgrep-ag
         request
         ripgrep
-        esup
+        ;;esup => “Symbolic link to Git-controlled source file; follow link? (yes or no) ” #60
         company-tabnine
         emmet-mode
         markdown-mode
@@ -54,18 +57,25 @@
         haskell-mode
         swift-mode
         racket-mode
-        ;; go-mode
-))
+        ;;term-keys
+        ein ;; M-x ein:run launches a jupyter process from emacs, or,
+        xonsh-mode ;; https://xon.sh/editors.html
+        async ;; 不能用老的同步思维来写了，sleep 3 然后再做，到底做完没有？ => https://github.com/jwiegley/emacs-async
+        reformatter ;;ruff-format
+        flycheck-mypy
+        gptel
+        ))
 
-(package-initialize)
+;; FOR install: https://github.com/radian-software/straight.el
+(defun install-libs ()
+  (dolist (package package-selected-packages)
+    (straight-use-package package)))
 
-(unless package-archive-contents
-  (package-refresh-contents))
+;; (straight-use-package "term-keys")
 
-(dolist (package package-selected-packages)
-  (when (and (assq package package-archive-contents)
-             (not (package-installed-p package)))
-    (package-install package t)))
+(install-libs)
+
+;;
 
 (add-to-list 'load-path "~/.emacs.d/go-mode.el")
 (autoload 'go-mode "go-mode" nil t)
