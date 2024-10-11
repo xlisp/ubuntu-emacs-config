@@ -321,6 +321,21 @@
 
 (global-set-key [f8] 'neotree-toggle)
 
+
+(defun check-window-width ()
+  "Check if the window width is greater than 2000 pixels and perform an action."
+  (when (> (frame-pixel-width) 200) ;; 全屏208在m3电脑！
+    ;;(message "Window width is greater than 200 pixels!")
+    (if (display-graphic-p) (message "")
+    (progn  (neotree-toggle)  (other-window 1) ) )
+    ))
+
+(defun my-window-size-change-function (frame)
+  "Function to run when the window size changes."
+  (check-window-width))
+
+(add-hook 'emacs-startup-hook 'check-window-width)
+
 ;; 解决Mac上面直接启动Emacs,而不是终端启动Emacs的PATH问题
 (exec-path-from-shell-initialize)
 
