@@ -2,3 +2,7 @@
 
 基于流处理和NLP的Emacs编辑器: EmacsSparkNLP, 只要编辑代码的数据源头,其他的自动编辑都是它变化的映射编辑 & 学习历史搜索,排序和输入信息等进行NLP向量化, 实现智能搜索和推荐列表等
 
+## 文档
+
+- [GCP Cloud Shell 按键冲突修改记录](docs/gcp-cloud-shell-keybindings.md) — 在浏览器终端中避开 Chrome 拦截的按键映射方案
+
