@@ -44,60 +44,62 @@
 ;; 321dasdas.dsadsad
 ;; das321321das.dsadsad
 
+;; GCP Cloud Shell: Ctrl+1-9 是 Chrome 切换标签, Ctrl+0 重置缩放
+;; 所以第二个键去掉 Ctrl, 改用 C-c <digit>
 ;; 批量操作时跳转到左右括号
 (global-set-key
- (kbd "C-c C-9")
+ (kbd "C-c 9")
  (lambda ()
    (interactive)
    (re-search-backward "(" nil t)))
 
 (global-set-key
- (kbd "C-c C-0")
+ (kbd "C-c 0")
  (lambda ()
    (interactive)
    (re-search-backward ")" nil t)))
 
 ;; 跳转到"后面: 用于多行编辑的时候,同时跳转
 (global-set-key
- (kbd "C-c C-1")
+ (kbd "C-c 1")
  (lambda ()
    (interactive)
    (re-search-forward "\"" nil t)))
 
 (global-set-key
- (kbd "C-c C-9")
+ (kbd "C-c 9")
  (lambda ()
    (interactive)
    (re-search-backward "\"" nil t)))
 
 ;; CSS样式格式转换的时候,宏编辑器批量修改`:`和`;`和` `
 (global-set-key
- (kbd "C-c C-2")
+ (kbd "C-c 2")
  (lambda ()
    (interactive)
    (re-search-forward ";" nil t)))
 (global-set-key
- (kbd "C-c C-3")
+ (kbd "C-c 3")
  (lambda ()
    (interactive)
    (re-search-forward ":" nil t)))
 
 (global-set-key
- (kbd "C-c C-4")
+ (kbd "C-c 4")
  (lambda ()
    (interactive)
    (insert-mark-id)
-   ;;(re-search-forward " " nil t) 
+   ;;(re-search-forward " " nil t)
 ))
 
 (global-set-key
- (kbd "C-c C-5")
+ (kbd "C-c 5")
  (lambda ()
    (interactive)
    (re-search-backward "]" nil t)))
 
 (global-set-key
- (kbd "C-c C-6")
+ (kbd "C-c 6")
  (lambda ()
    (interactive)
    (re-search-forward "\\[" nil t)))
@@ -106,7 +108,7 @@
 
 ;; 通用的可以批量跳转到任意的位置！
 (global-set-key
- (kbd "C-c C-7")
+ (kbd "C-c 7")
  (lambda (name)
    (interactive "sName")
    (setq forword-key name)
@@ -128,13 +130,13 @@
 )
 
 (global-set-key
- (kbd "C-c C-8")
+ (kbd "C-c 8")
  (lambda ()
    (interactive)
    (re-search-forward "{" nil t)))
 
 (global-set-key
- (kbd "C-c C--")
+ (kbd "C-c -")
  (lambda ()
    (interactive)
    (re-search-forward forword-key nil t)))
@@ -176,14 +178,14 @@
   (message (format "=======================%d\n\n\n\n\n\n" (random 999999999999))))
 
 (global-set-key
- (kbd "C-c C-9")
+ (kbd "C-c 9")
  (lambda ()
    (interactive)
    (re-search-forward "}" nil t)))
 
-;; 先mutil多选"<img ", 然后编辑为<image , 移动到> 替换为/> 即可！
+;; 先mutil多选"<img ", 然后编辑为<image , 移动到> 替换为/> 即可！ (C-p 是浏览器打印)
 (global-set-key
- (kbd "C-c C-p")
+ (kbd "C-c p")
  (lambda ()
    (interactive)
    (re-search-forward ">" nil t)))

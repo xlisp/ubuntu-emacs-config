@@ -395,8 +395,8 @@ occurence of CHAR."
     (define-key map (kbd "") 'rb-eval-expression-at)
     (define-key map (kbd "") 'rb-eval-expression-at9018) ;; C-x j
     ;; (define-key map (kbd "") 'get-rb-obj-body)
-    ;; C-c C-j 整体  + C-c p 局部 Mark + C-c t wy-go-to-char
-    (define-key global-map (kbd "C-c C-j") 'rb-eval-expression-at-lambda)
+    ;; C-c j 整体  + C-c p 局部 Mark + C-c t wy-go-to-char (C-j 是浏览器下载)
+    (define-key global-map (kbd "C-c j") 'rb-eval-expression-at-lambda)
     map))
 
 (define-minor-mode kungfu-mode

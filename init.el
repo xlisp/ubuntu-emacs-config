@@ -186,25 +186,25 @@
   "Comment out one or more s-expressions."
   nil)
 
-(define-key global-map (kbd "C-x C-o") 'counsel-projectile-switch-project)
+;; GCP Cloud Shell: 第二个 Ctrl 键被 Chrome 拦截, 所以用 C-x <letter> 而非 C-x C-<letter>
+(define-key global-map (kbd "C-x o") 'counsel-projectile-switch-project)
 ;; 需要在*scratch*的buffer下才能执行成功 # 搜索中文需要加一个空格在中文词后面
-;; (define-key global-map (kbd "C-x C-a") 'counsel-projectile-ag)
 (global-set-key
- (kbd "C-c C-a")
+ (kbd "C-c a")
  (lambda ()
    (interactive)
    (call-interactively #'counsel-projectile-ag)))
 
 ;; C-c C-a 在java模式下面会被覆盖掉, C-x C-a在Elisp模式下会被覆盖掉
 (global-set-key
- (kbd "C-x C-a")
+ (kbd "C-x a")
  (lambda ()
    (interactive)
    (call-interactively #'counsel-projectile-ag)))
 
-;; (define-key global-map (kbd "C-p") 'counsel-projectile-find-file) ;; 新版本的Emacs28会导致卡死
+;; C-p 是 Chrome 打印; 改用 <f7> (F-键不被浏览器拦截)
 (global-set-key
- (kbd "C-p")
+ (kbd "<f7>")
  (lambda ()
    (interactive)
    (if (string= "~/" default-directory)
@@ -214,7 +214,7 @@
      (counsel-projectile-find-file))))
 
 ;; 关闭所有buffer: 针对project来的 # 需要在vterm的buffer下面执行才有效=>会问你要不要关掉repl,你选择no,其他文件都会被关掉,关于这个项目的
-(define-key global-map (kbd "C-c C-q") 'projectile-kill-buffers)
+(define-key global-map (kbd "C-c q") 'projectile-kill-buffers)
 
 ;; M-> & M-< 跳到最后;;*
 (global-set-key (kbd "C-c m") 'end-of-buffer) ;; C-M-SPC
@@ -290,8 +290,8 @@
 
 (require 'hideshow)
 
-;; 显示隐藏的comment: 多行的表达式的开关
-(define-key global-map (kbd "C-x C-h") 'hs-toggle-hiding)
+;; 显示隐藏的comment: 多行的表达式的开关 (C-h 浏览器历史, 用 C-x h)
+(define-key global-map (kbd "C-x h") 'hs-toggle-hiding)
 
 ;; C-2出来用法注释
 (defun user/clojure-hide-comment (&rest args)
@@ -313,7 +313,8 @@
   (yas-minor-mode 1)        ; for adding require/use/import statements
   ;; This choice of keybinding leaves cider-macroexpand-1 unbound
   (cljr-add-keybindings-with-prefix "C-c C-m")
-  (define-key global-map (kbd "C-c C-o") 'cider-pprint-eval-last-sexp-to-comment))
+  ;; C-o 是浏览器打开文件, 用 C-c o
+  (define-key global-map (kbd "C-c o") 'cider-pprint-eval-last-sexp-to-comment))
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 
 (setq clojure-indent-style 'always-indent)
@@ -466,4 +467,7 @@
 ;;(setq mac-command-modifier 'meta)
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+;; GCP Cloud Shell 按键冲突解决方案 (必须最后加载,覆盖之前的绑定)
+(require 'jim-gcp-keybindings)
 
